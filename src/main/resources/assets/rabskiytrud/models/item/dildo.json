@@ -1,7 +1,27 @@
 {
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "didldo.png"
+		"1": "rabskiytrud:item/dildo",
+		"particle": "rabskiytrud:item/dildo",
+		"0": "rabskiytrud:item/dildo",
+		"2": "rabskiytrud:item/dildo",
+		"3": "rabskiytrud:item/dildo",
+		"4": "rabskiytrud:item/dildo",
+		"5": "rabskiytrud:item/dildo",
+		"6": "rabskiytrud:item/dildo",
+		"7": "rabskiytrud:item/dildo",
+		"8": "rabskiytrud:item/dildo",
+		"9": "rabskiytrud:item/dildo",
+		"10": "rabskiytrud:item/dildo",
+		"11": "rabskiytrud:item/dildo",
+		"12": "rabskiytrud:item/dildo",
+		"13": "rabskiytrud:item/dildo",
+		"14": "rabskiytrud:item/dildo",
+		"15": "rabskiytrud:item/dildo",
+		"16": "rabskiytrud:item/dildo",
+		"17": "rabskiytrud:item/dildo",
+		"18": "rabskiytrud:item/dildo",
+		"all": "rabskiytrud:item/dildo"
 	},
 	"elements": [
 		{

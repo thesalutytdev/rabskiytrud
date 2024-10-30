@@ -2,8 +2,8 @@
 	"credit": "Made with Blockbench",
 	"texture_size": [32, 32],
 	"textures": {
-		"1": "dildo",
-		"particle": "dildo"
+		"1": "rabskiytrud:block/dildo",
+		"particle": "rabskiytrud:block/dildo"
 	},
 	"elements": [
 		{
