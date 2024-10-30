@@ -19,5 +19,15 @@ public class ModBlocks {
                     .jumpFactor(100.0F)
                     .speedFactor(0.0F)
             ));
+    public static final RegistryObject<Block> SPRING =
+            BLOCKS.register("spring",
+                    () -> new Spring(BlockBehaviour.Properties.of()
+                            .dynamicShape()
+                            .instabreak()
+                            .noLootTable()
+                            .explosionResistance(1.0F)
+                            .jumpFactor(4.0F)
+                            .speedFactor(0.3F)
+                    ));
 
 }
