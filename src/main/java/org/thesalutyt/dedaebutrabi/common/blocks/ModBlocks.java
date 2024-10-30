@@ -26,7 +26,7 @@ public class ModBlocks {
                             .instabreak()
                             .noLootTable()
                             .explosionResistance(1.0F)
-                            .jumpFactor(4.0F)
+                            .jumpFactor(2.0F)
                             .speedFactor(0.3F)
                     ));
 
