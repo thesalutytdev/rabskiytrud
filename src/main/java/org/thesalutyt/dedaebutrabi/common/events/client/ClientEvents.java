@@ -6,6 +6,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import org.thesalutyt.dedaebutrabi.Rabskiytrud;
 import org.thesalutyt.dedaebutrabi.common.commands.GetStats;
+import org.thesalutyt.dedaebutrabi.common.commands.Sit;
 
 @Mod.EventBusSubscriber(
         modid = Rabskiytrud.MODID,
@@ -15,6 +16,7 @@ public class ClientEvents {
     @SubscribeEvent
     public static void onCommandRegistering(RegisterCommandsEvent event) {
         new GetStats(event.getDispatcher());
+        new Sit(event.getDispatcher());
     }
 
     @Mod.EventBusSubscriber(
