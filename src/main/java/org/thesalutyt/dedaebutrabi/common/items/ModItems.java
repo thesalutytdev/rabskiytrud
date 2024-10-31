@@ -23,7 +23,7 @@ public class ModItems {
     @SubscribeEvent
     public static void onRegisterItems(final RegisterEvent event) {
         if (event.getRegistryKey().equals(ForgeRegistries.Keys.ITEMS)){
-            ModBlocks.BLOCKS.getEntries().forEach( (blockRegistryObject) -> {
+            ModBlocks.BLOCKS.getEntries().forEach((blockRegistryObject) -> {
                 Block block = blockRegistryObject.get();
 
                 if (block instanceof Dildo) {

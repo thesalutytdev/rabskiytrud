@@ -2,16 +2,29 @@ package org.thesalutyt.dedaebutrabi.data;
 
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.event.ServerChatEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.event.entity.player.PlayerXpEvent;
+import net.minecraftforge.event.level.BlockEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.server.ServerLifecycleHooks;
+import org.thesalutyt.dedaebutrabi.Rabskiytrud;
+import org.thesalutyt.dedaebutrabi.utils.TimeUtils;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicBoolean;
 
+@Mod.EventBusSubscriber(
+    modid = Rabskiytrud.MODID
+)
 public class PlayerStat {
     public static ArrayList<PlayerStat> players = new ArrayList<>();
 
@@ -21,6 +34,10 @@ public class PlayerStat {
     public int itemsCrafted;
     public int xpGained;
     public int messagesSent;
+    public Date lastLogin;
+    public Date lastLogout;
+    public TimeUtils.Time activeTime;
+    public TimeUtils.Time afkTime;
 
     protected final Player player;
 
@@ -180,6 +197,33 @@ public class PlayerStat {
         }
     }
 
+    @SubscribeEvent
+    public static void onBlockBroken(BlockEvent.BreakEvent event) {
+        getPlayerStat(event.getPlayer()).blocksBroken++;
+    }
+
+    @SubscribeEvent
+    public static void onBlockPlaced(BlockEvent.EntityPlaceEvent event) {
+        if (!(event.getEntity() instanceof Player)) return;
+
+        getPlayerStat(((Player) event.getEntity())).blocksPlaced++;
+    }
+
+    @SubscribeEvent
+    public static void onItemCrafted(PlayerEvent.ItemCraftedEvent event) {
+        getPlayerStat(event.getEntity()).itemsCrafted++;
+    }
+
+    @SubscribeEvent
+    public static void onXpGained(PlayerXpEvent.XpChange event) {
+        getPlayerStat(event.getEntity()).xpGained += event.getAmount();
+    }
+
+    @SubscribeEvent
+    public static void onMessageSent(ServerChatEvent event) {
+        getPlayerStat(event.getPlayer()).messagesSent++;
+    }
+
     public enum Translation {
         BLOCKS_PLACED("stats.blocksPlaced"),
         BLOCKS_BROKEN("stats.blocksBroken"),
@@ -187,7 +231,12 @@ public class PlayerStat {
         ITEMS_CRAFTED("stats.itemsCrafted"),
         XP_GAINED("stats.xpGained"),
         MESSAGES_SENT("stats.messagesSent"),
-        STATS_FOR("stats.for"),;
+        STATS_FOR("stats.for"),
+        AFK_TIME("stats.afkTime"), // время бездействия
+        ALL_TIME("stats.allTime"), // время пробыто на сервере, во время последней сессии
+        LOGGED_IN("stats.loggedIn"), // когда зашел(время + дата)
+        LOGGED_OUT("stats.loggedOut"), // когда вышел(время + дата)
+        ;
 
         private final String translationKey;
 

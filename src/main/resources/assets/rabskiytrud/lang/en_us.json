@@ -5,5 +5,9 @@
   "stats.itemsCrafted": "Items Crafted",
   "stats.xpGained": "XP Gained",
   "stats.messagesSent": "Messages Sent",
-  "stats.for": "Stats for"
+  "stats.for": "Stats for",
+  "stats.afkTime": "AFK Time",
+  "stats.allTime": "All Time",
+  "stats.loggedIn": "Logged In",
+  "stats.loggedOut": "Logged Out"
 }

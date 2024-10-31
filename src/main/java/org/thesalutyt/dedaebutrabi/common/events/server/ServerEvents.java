@@ -1,6 +1,7 @@
 package org.thesalutyt.dedaebutrabi.common.events.server;
 
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.RegisterCommandsEvent;
@@ -15,6 +16,7 @@ import net.minecraftforge.fml.common.Mod;
 import org.thesalutyt.dedaebutrabi.Rabskiytrud;
 import org.thesalutyt.dedaebutrabi.common.commands.GetStats;
 import org.thesalutyt.dedaebutrabi.data.PlayerStat;
+import org.thesalutyt.dedaebutrabi.server.Server;
 
 @Mod.EventBusSubscriber(
         modid = Rabskiytrud.MODID,
@@ -28,44 +30,17 @@ public class ServerEvents {
 
     @SubscribeEvent
     public static void onServerStarting(ServerStartingEvent event) {
-        PlayerStat.load();
+        Server.onServerStarting(event);
     }
 
     @SubscribeEvent
     public static void onServerStopping(ServerStoppingEvent event) {
-        PlayerStat.save();
+        Server.onServerStopping(event);
     }
 
     @SubscribeEvent
     public static void onPlayerJoining(PlayerEvent.PlayerLoggedInEvent event) {
-        new PlayerStat(event.getEntity());
-    }
-
-    @SubscribeEvent
-    public static void onBlockBroken(BlockEvent.BreakEvent event) {
-        PlayerStat.getPlayerStat(event.getPlayer()).blocksBroken++;
-    }
-
-    @SubscribeEvent
-    public static void onBlockPlaced(BlockEvent.EntityPlaceEvent event) {
-        if (!(event.getEntity() instanceof Player)) return;
-
-        PlayerStat.getPlayerStat(((Player) event.getEntity())).blocksPlaced++;
-    }
-
-    @SubscribeEvent
-    public static void onItemCrafted(PlayerEvent.ItemCraftedEvent event) {
-        PlayerStat.getPlayerStat(event.getEntity()).itemsCrafted++;
-    }
-
-    @SubscribeEvent
-    public static void onXpGained(PlayerXpEvent.XpChange event) {
-        PlayerStat.getPlayerStat(event.getEntity()).xpGained += event.getAmount();
-    }
-
-    @SubscribeEvent
-    public static void onMessageSent(ServerChatEvent event) {
-        PlayerStat.getPlayerStat(event.getPlayer()).messagesSent++;
+        Server.onPlayerJoining((ServerPlayer) event.getEntity());
     }
 
     @Mod.EventBusSubscriber(

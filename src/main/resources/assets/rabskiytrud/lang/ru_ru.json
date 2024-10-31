@@ -5,5 +5,9 @@
   "stats.itemsCrafted": "Количество созданных предметов",
   "stats.xpGained": "Количество полученного опыта",
   "stats.messagesSent": "Количество отправленных сообщений",
-  "stats.for": "Статистика для"
+  "stats.for": "Статистика для",
+  "stats.afkTime": "Время бездействия",
+  "stats.allTime": "Всего",
+  "stats.loggedIn": "Вход",
+  "stats.loggedOut": "Выход"
 }
