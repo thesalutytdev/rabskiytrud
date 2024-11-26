@@ -9,5 +9,11 @@
   "stats.afkTime": "AFK Time",
   "stats.allTime": "All Time",
   "stats.loggedIn": "Logged In",
-  "stats.loggedOut": "Logged Out"
+  "stats.loggedOut": "Logged Out",
+
+  "creativetab.rabskiytrud": "Nomad Tab",
+
+  "block.rabskiytrud.dildo": "Dildo",
+  "block.rabskiytrud.spring": "Spring",
+  "block.rabskiytrud.wooden_box": "Деревянный ящик"
 }

@@ -9,5 +9,11 @@
   "stats.afkTime": "Время бездействия",
   "stats.allTime": "Всего",
   "stats.loggedIn": "Вход",
-  "stats.loggedOut": "Выход"
+  "stats.loggedOut": "Выход",
+
+  "creativetab.rabskiytrud": "Вкладка Номадов",
+
+  "block.rabskiytrud.dildo": "Детородный аппарат",
+  "block.rabskiytrud.spring": "Батут",
+  "block.rabskiytrud.wooden_box": "Деревянный ящик"
 }

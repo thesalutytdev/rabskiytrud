@@ -10,7 +10,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegisterEvent;
 import org.thesalutyt.dedaebutrabi.Rabskiytrud;
-import org.thesalutyt.dedaebutrabi.common.blocks.Dildo;
+import org.thesalutyt.dedaebutrabi.common.blocks.custom.Dildo;
 import org.thesalutyt.dedaebutrabi.common.blocks.ModBlocks;
 
 import java.util.function.Supplier;
@@ -18,7 +18,8 @@ import java.util.function.Supplier;
 
 @Mod.EventBusSubscriber(modid = Rabskiytrud.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModItems {
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Rabskiytrud.MODID);
+    public static final DeferredRegister<Item> ITEMS =
+            DeferredRegister.create(ForgeRegistries.ITEMS, Rabskiytrud.MODID);
 
     @SubscribeEvent
     public static void onRegisterItems(final RegisterEvent event) {
